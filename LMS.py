@@ -12,47 +12,37 @@ class project():
     def __init__(self,master,a):
         self.login=master
         self.e3=a
+        self.label1 = Label(login, text="Enter the Username")
+        self.label1.grid(row=2, column=1, sticky=W)
+        self.entry1 = Entry(login)
+        self.entry1.grid(row=2, column=2)
+        self.entry1.focus()
 
-        def Login():
+        self.label2 = Label(login, text="Enter the Password")
+        self.label2.grid(row=4, column=1, sticky=W)
+        self.entry2 = Entry(login, show="*")
+        self.entry2.grid(row=4, column=2)
+        self.entry2.focus()
 
-            username = entry1.get()
-            password = entry2.get()
-            if (username == "varshakjssc@somaiya.edu" and password == "varsha12345") or (
-                    username == "yuvrajkjssc@somaiya.edu" and password == "yuvraj12345"):
-                pass
+        self.LoginB = Button(login, text="Login", font=20, command=self.checkinfo)
+        self.LoginB.grid(row=6, column=2, sticky=W)
 
-            else:
-                invalid = Tk()
-                invalid.geometry("300x200")
-                label = Label(invalid, text="Invalid login").pack()
-                invalid.mainloop()
+    def checkinfo(self):
+        username = self.entry1.get()
+        password = self.entry2.get()
+        if (username == "varsha" and password == "12345") or (
+                username == "yuvrajkjssc@somaiya.edu" and password == "yuvraj12345"):
+            self.homepage()
 
-    rootA = Tk()
-    rootA.title("Login")
-    rootA.geometry("300x200")
-
-    username = StringVar()
-    password = StringVar()
-
-    label1 = Label(rootA, text="Enter the Username")
-    label1.grid(row=2, column=1, sticky=W)
-    entry1 = Entry(rootA)
-    entry1.grid(row=2, column=2)
-    entry1.focus()
-
-    label2 = Label(rootA, text="Enter the Password")
-    label2.grid(row=4, column=1, sticky=W)
-    entry2 = Entry(rootA, show="*")
-    entry2.grid(row=4, column=2)
-    entry2.focus()
-
-    LoginB = Button(rootA, text="Login", font=20, command=Login)
-    LoginB.grid(row=6, column=2, sticky=W)
-
-    rootA.mainloop()
+        else:
+            invalid = Tk()
+            invalid.geometry("300x200")
+            label = Label(invalid, text="Invalid login").pack()
+            invalid.mainloop()
 
 
-def hompage(self):
+
+    def hompage(self):
 
         self.homepage.title("K.J.SOMAIYA COLLEGE OF SCIENCE AND COMMERES")
         self.homepage.geometry("800x800")
